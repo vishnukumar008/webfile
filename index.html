@@ -47,13 +47,11 @@
         @keyframes image {
             to {
                 background-image: url("./IMG_20241003_175031_920.png");
-
                 box-shadow: 20px 20px 50px lightgrey;
             }
 
             from {
                 background-image: url("./IMG_20241116_161831_274.png");
-
                 box-shadow: 20px 20px 50px rgba(185, 255, 79, 0.559);
             }
 
@@ -110,16 +108,28 @@
         }
 
         i {
-            animation: with 1s infinite alternate-reverse;
+            animation: vibration-rotate 1s infinite linear;
         }
 
-        @keyframes with {
+        @keyframes vibration-rotate {
             0% {
-                transform: rotate(40deg);
+                transform: rotate(0deg);
+            }
+
+            20% {
+                transform: rotate(-10deg);
             }
 
             40% {
-                transform: rotate(-80deg);
+                transform: rotate(5deg);
+            }
+
+            60% {
+                transform: rotate(-10deg);
+            }
+
+            80% {
+                transform: rotate(0deg);
             }
 
             100% {
@@ -130,7 +140,6 @@
         iframe {
             width: 400px;
             height: 200px;
-            border: 2px solid black;
             border-radius: 10px;
         }
 
@@ -205,6 +214,19 @@
 
             h1 {
                 font-size: 30px;
+            }
+        }
+
+        @media (max-width:360px) {
+            .main {
+                height: 100vh;
+                padding: 20px;
+            }
+
+            .container {
+                width: 90%;
+                height: 90vh;
+                padding: 20px;
             }
         }
     </style>
