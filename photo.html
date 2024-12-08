@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotated circle</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --n: 10;
+            --duration: 50s;
+            --card-tiltZ: 12deg;
+            --card-tiltX: 3deg;
+            --card-max-radius: 28em;
+            --card-radius: min(40vw, var(--card-max-radius));
+            --card-omtrek: calc(2 * pi * var(--card-radius));
+            --item-size-bruto: calc(var(--card-omtrek) / var(--n));
+            --item-spacing: .5;
+            --item-size-netto: calc(var(--item-size-bruto) / (1 + var(--item-spacing)));
+            --item-tiltX: 12deg;
+        }
+
+        section {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            background-image: linear-gradient(black, midnightblue);
+        }
+
+        ul {
+            list-style-type: none;
+            display: grid;
+            perspective: 100vh;
+            transform-style: preserve-3d;
+        }
+
+        li {
+            --delay: calc(var(--duration) / var(--n) * var(--i) - var(--duration));
+            grid-area: 1/1;
+            width: var(--item-size-netto);
+            transform: rotateZ(var(--card-tiltZ)) rotateX(var(--card-tiltX)) rotateY(var(--item-rotateY)) translateZ(var(--card-radius)) rotateX(var(--item-tiltX));
+            animation: item-rotateY var(--duration) var(--delay) infinite linear;
+        }
+
+        @keyframes item-rotateY {
+            100% {
+                --item-rotateY: 360deg;
+            }
+        }
+
+        @property --item-rotateY {
+            syntax: "<angle>";
+            inherits: true;
+            initial-value: 0deg;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            mask: linear-gradient(45deg, transparent, red);
+            border-radius: 20px;
+        }
+        @media (max-width:500px){
+            section {
+                width: 100%;
+                height: 100vh;
+            }
+            img {
+                width: 100px;
+                height: 100px;
+                border-radius: 20px;
+            }
+            li {
+                transform: rotateZ(93deg) rotateX(0deg) rotateY(var(--item-rotateY)) translateZ(13em) rotateX(var(--item-tiltX));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <ul>
+            <li style="--i:1"><img src="./IMG_20241003_175031_920.png" alt="" /></li>
+            <li style="--i:2"><img src="./IMG_20241116_161831_274.png" alt="" /></li>
+            <li style="--i:3"><img src="./IMG_20241105_195535_672.png" alt="" /></li>
+            <li style="--i:4"><img src="./1717652626850.jpg" alt="" /></li>
+            <li style="--i:5"><img src="./IMG_20240708_233818_733.jpg" alt="" /></li>
+            <li style="--i:6"><img src="./IMG_20240925_081509_162.jpg" alt="" /></li>
+            <li style="--i:7"><img src="./IMG_20240704_210513_174.jpg" alt="" /></li>
+            <li style="--i:8"><img src="./1732514713670.jpg" alt="" /></li>
+            <li style="--i:9"><img src="./1718112011220.jpg" alt="" /></li>
+            <li style="--i:10"><img src="./image.png" alt="" /></li>
+        </ul>
+    </section>
+</body>
+
+</html>
