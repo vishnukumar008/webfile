@@ -158,12 +158,12 @@ i {
 
 @media (max-width:530px) {
     .main {
-        width: 90%;
+        width: 100%;
     }
 
     .container {
         height: auto;
-        width: 100%;
+        width: 90%;
     }
 
     .media a {
