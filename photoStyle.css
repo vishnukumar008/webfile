@@ -60,7 +60,18 @@ img {
     border-radius: 20px;
 }
 
-@media (max-width:500px) {
+audio {
+    width: 20%;
+    position: absolute;
+    bottom: 0;
+    opacity: 0.2;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: rgb(0, 0, 255);
+}
+
+@media (max-width:600px) {
     section {
         width: 100%;
         height: 100vh;
@@ -74,5 +85,9 @@ img {
 
     li {
         transform: rotateZ(93deg) rotateX(0deg) rotateY(var(--item-rotateY)) translateZ(13em) rotateX(var(--item-tiltX));
+    }
+
+    audio {
+        width: 60%;
     }
 }
